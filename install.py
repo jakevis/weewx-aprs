@@ -8,7 +8,7 @@ def loader():
 class APRSInstaller(ExtensionInstaller):
     def __init__(self):
         super(APRSInstaller, self).__init__(
-            version='0.1',
+            version='0.2',
             name='aprs',
             description='Write archive data in APRS positionless format.',
             author='Ludovico Cavedon (K6LUD)',

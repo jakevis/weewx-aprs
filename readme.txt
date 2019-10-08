@@ -34,6 +34,24 @@ Example of integration in the aprx configuration:
     beacon srccall N0CALL-1 via WIDE2-1 file "/dev/shm/aprs.pkt"
     </beacon>
 
+Example config for Direwolf (with Direwolf reading the aprs.txt file from a webserver, so not they dont need to be on the same machine.)
+The aprs.txt (pkt) file is writen to the weewx web directory.
+
+weewx:
+
+# Options for extension 'aprs'
+[APRS]
+    comment = ""
+    include_position = 0
+    symbol_code = ""
+    symbol_table = ""
+    output_filename = /var/www/html/aprs.tx
+
+Direwolf:
+
+PBEACON every=10 lat=47^35.19N long=122^18.71W SYMBOL="weather station" COMMENTCMD="curl -s http://exmple.com/aprs.txt 2> /dev/null | head -n1"
+
+
 Note: this configuration has the problem that aprx and weewx are not
 syncronized, so aprx may send out the same packet twice or miss one from time
 to time.
