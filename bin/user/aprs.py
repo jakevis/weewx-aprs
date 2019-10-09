@@ -21,8 +21,8 @@ class APRS(weewx.engine.StdService):
         self._time_format = '%m%d%H%M'
         self._latitude = None
         self._longitude = None
-        self._wind_direction_marker = 'c'
-        self._wind_speed_marker = 's'
+        self._wind_direction_marker = ''
+        self._wind_speed_marker = '/'
         if self._include_position:
             # Position with timestamp (no APRS messaging)
             self._message_type = '/'
